@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { supabase } from './supabaseClient';
+import styles from './assets/style/App.module.scss';
 
 function App() {
   const [players, setPlayers] = useState([]);
@@ -26,8 +27,8 @@ function App() {
   return (
     <div>
       <h1>DeNAベイスターズの選手一覧</h1>
-      <table>
-        <thead>
+      <table className={ styles.table }>
+        <thead className={ styles.table__head }>
           <tr>
             <th>背番号</th>
             <th>名前</th>
@@ -43,7 +44,7 @@ function App() {
           </tr>
         </thead>
 
-        <tbody>
+        <tbody className={ styles.table__body }>
         {
           players.map(player => (
             <tr key={player.id}>
