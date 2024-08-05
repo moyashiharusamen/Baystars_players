@@ -19,7 +19,7 @@ function App() {
 
         setPlayers(players);
       } catch (error) {
-        setError(error.message);  // エラーメッセージをステートに設定
+        setError(error.message);
       }
     };
     getPlayers();
@@ -29,7 +29,14 @@ function App() {
   const currentYear = currentDate.getFullYear();
   const getAge = (birth) => {
     const birthYear = birth.slice(0, 4);
-    return currentYear - birthYear;
+    const birthMonth = birth.slice(5, 7);
+    const birthDay = birth.slice(8, 10);
+    const thisYearsBirthday = new Date(currentYear, birthMonth-1, birthDay);
+    let age = currentYear - birthYear;
+
+    if (currentDate < thisYearsBirthday ) age--;
+
+    return age;
   };
   const getEnrollment = (joining) => currentYear - joining;
 
