@@ -1,0 +1,10 @@
+.section {
+  @at-root {
+    .section {}
+
+    .section__inner {
+      max-width: 1024px;
+      margin-inline: auto;
+    }
+  }
+}
