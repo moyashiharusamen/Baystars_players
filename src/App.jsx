@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import Section from './components/layouts/Section';
-import Table from './features/playersList/Table'
+import PlayersListTable from './features/playersList/PlayersListTable'
 
 function App() {
   return (
@@ -8,7 +8,7 @@ function App() {
       <div>
         <h1>DeNAベイスターズの選手一覧</h1>
 
-        <Table />
+        <PlayersListTable />
       </div>
     </Section>
   );

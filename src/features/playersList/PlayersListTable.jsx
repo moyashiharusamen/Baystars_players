@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { supabase } from './supabaseClient';
-import styles from './Table.module.scss';
+import styles from './PlayersListTable.module.scss';
 
 function App() {
   const [players, setPlayers] = useState([]);
