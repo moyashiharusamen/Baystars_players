@@ -1,12 +1,17 @@
 import React from 'react';
-import styles from './Section.module.scss';
+import styled from 'styled-components';
 
 const Section = ({ children }) => {
+  const SectionInner = styled.section`
+    max-width: 1024px;
+    margin-inline: auto;
+  `;
+
   return (
-    <section className={ styles.section }>
-      <div className={ styles.section__inner }>
+    <section>
+      <SectionInner>
         { children }
-      </div>
+      </SectionInner>
     </section>
   )
 }

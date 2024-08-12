@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { supabase } from './supabaseClient';
-import styles from './PlayersListTable.module.scss';
+import styled from 'styled-components';
 
 function App() {
   const [players, setPlayers] = useState([]);
@@ -40,48 +40,67 @@ function App() {
   };
   const getEnrollment = (joining) => currentYear - joining;
 
+  const Table = styled.table`
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid;
+    text-align: center;
+  `;
+  const Th = styled.th`
+    padding: 10px;
+    background: #eee;
+    font-size: 18px;
+    border: 1px solid;
+    text-align: center;
+  `;
+  const Td = styled.td`
+    border: 1px solid;
+    text-align: center;
+    padding: 10px;
+  `;
+
   return (
-    <table className={ styles.table }>
-      <thead className={ styles.table__head }>
+    <Table>
+      <thead>
         <tr>
-          <th>背番号</th>
-          <th>名前</th>
-          <th>守備位置</th>
-          <th>投打</th>
-          <th>生年月日</th>
-          <th>年齢</th>
-          <th>年数</th>
-          <th>身長</th>
-          <th>体重</th>
-          <th>出身地</th>
-          <th>年俸（推定）</th>
+          <Th>背番号</Th>
+          <Th>名前</Th>
+          <Th>守備位置</Th>
+          <Th>投打</Th>
+          <Th>生年月日</Th>
+          <Th>年齢</Th>
+          <Th>年数</Th>
+          <Th>身長</Th>
+          <Th>体重</Th>
+          <Th>出身地</Th>
+          <Th>年俸（推定）</Th>
         </tr>
       </thead>
 
-      <tbody className={ styles.table__body }>
+      <tbody>
       {
         players.map(player => (
           <tr key={player.id}>
-            <td>{player.uniform_number}</td>
-            <td>{player.name}</td>
-            <td>{player.pitching_batting}</td>
-            <td>{player.position}</td>
-            <td>{player.birth}</td>
-            <td>
+            <Td>{player.uniform_number}</Td>
+            <Td>{player.name}</Td>
+            <Td>{player.pitching_batting}</Td>
+            <Td>{player.position}</Td>
+            <Td>{player.birth}</Td>
+            <Td>
               {getAge(player.birth)}歳
-            </td>
-            <td>
+            </Td>
+            <Td>
               {getEnrollment(player.joining)}年
-            </td>
-            <td>{player.height}</td>
-            <td>{player.weight}</td>
-            <td>{player.birthplace}</td>
-            <td>{Number(player.salary).toLocaleString()}万円</td>
+            </Td>
+            <Td>{player.height}</Td>
+            <Td>{player.weight}</Td>
+            <Td>{player.birthplace}</Td>
+            <Td>{Number(player.salary).toLocaleString()}万円</Td>
           </tr>
         ))
       }
       </tbody>
-    </table>
+    </Table>
   );
 }
 
