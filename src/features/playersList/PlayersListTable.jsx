@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { supabase } from './supabaseClient';
 import styled from 'styled-components';
 
-function App() {
+function PlayersListTable() {
   const [players, setPlayers] = useState([]);
   useEffect(() => {
     const getPlayers = async () => {
@@ -104,4 +104,4 @@ function App() {
   );
 }
 
-export default App;
+export default PlayersListTable;
