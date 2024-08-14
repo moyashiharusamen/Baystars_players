@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import Section from './components/layouts/Section';
 import PlayersListTable from './features/playersList/PlayersListTable'
 
