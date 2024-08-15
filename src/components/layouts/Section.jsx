@@ -1,11 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Section = ({ children }) => {
-  const SectionInner = styled.section`
-    max-width: 1024px;
-    margin-inline: auto;
-  `;
+const SectionInner = styled.section`
+  max-width: 1024px;
+  margin-inline: auto;
+`;
 
   return (
     <section>
