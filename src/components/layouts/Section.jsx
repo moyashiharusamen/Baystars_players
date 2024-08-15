@@ -6,6 +6,7 @@ const SectionInner = styled.section`
   margin-inline: auto;
 `;
 
+const Section = ({ children }) => {
   return (
     <section>
       <SectionInner>
