@@ -7,7 +7,6 @@ const Td = styled.td`
 `;
 
 const PlayersList = ({ players }) => {
-  console.log('PlayersList');
   const currentDate = new Date();
   const currentYear = currentDate.getFullYear();
   const getAge = (birth) => {
