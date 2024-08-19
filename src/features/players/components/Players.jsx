@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useLayoutEffect } from 'react';
 import { supabase } from '../supabaseClient';
 
 import styled from 'styled-components';
@@ -21,6 +21,20 @@ const Th = styled.th`
 
 function Players() {
   const [players, setPlayers] = useState([]);
+  const TABLE_ROW_LIST = [
+    "背番号",
+    "名前",
+    "守備位置",
+    "投打",
+    "生年月日",
+    "年齢",
+    "年数",
+    "身長",
+    "体重",
+    "出身地",
+    "年俸（推定）",
+  ];
+
   useEffect(() => {
     const getPlayers = async () => {
       try {
@@ -42,17 +56,7 @@ function Players() {
     <Table>
       <thead>
         <tr>
-          <Th>背番号</Th>
-          <Th>名前</Th>
-          <Th>守備位置</Th>
-          <Th>投打</Th>
-          <Th>生年月日</Th>
-          <Th>年齢</Th>
-          <Th>年数</Th>
-          <Th>身長</Th>
-          <Th>体重</Th>
-          <Th>出身地</Th>
-          <Th>年俸（推定）</Th>
+          {TABLE_ROW_LIST.map(list => <Th>{list}</Th>)}
         </tr>
       </thead>
 
